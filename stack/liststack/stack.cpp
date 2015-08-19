@@ -21,6 +21,13 @@ Stack::Stack(const Stack& stack):_top(nullptr), size(stack.size){
 }
 
 Stack& Stack::operator=(const Stack &stack){
+	if(this != &stack){
+		Stack tmp(stack);
+		Node *tp = tmp._top;
+		tmp._top = this->_top;
+		this->_top = tp;
+		this->size = tmp.size;
+	}
 	return *this;
 }
 
