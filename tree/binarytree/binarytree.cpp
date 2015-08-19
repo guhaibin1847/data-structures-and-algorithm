@@ -9,13 +9,28 @@
 #include <utility>
 #include "binarytree.hpp"
 
+TreeNode* deepCopy(TreeNode *from, TreeNode *to){
+	if(from != nullptr){
+		to = new TreeNode(from->_val);
+		to->left = deepCopy(from->left, to->left);
+		to->right = deepCopy(from->right, to->right);
+	}
+	return to;
+}
+
 BinaryTree::BinaryTree(int val):root(new TreeNode(val)){}
 
-BinaryTree::BinaryTree(const BinaryTree &tree):root(new TreeNode(tree.root->_val)){
-
+BinaryTree::BinaryTree(const BinaryTree &tree):root(nullptr){
+	root = deepCopy(tree.root, root);
 }
 
 BinaryTree & BinaryTree::operator =(const BinaryTree &tree){
+	if(this != &tree){
+		BinaryTree tmp(tree);
+		TreeNode *tp = tree.root;
+		tree.root = tmp.root;
+		this->root = tp;
+	}
 	return *this;
 }
 

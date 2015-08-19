@@ -43,6 +43,6 @@ private :
 	int findMax(TreeNode *root);
 	TreeNode *root;
 };
-
+TreeNode* deepCopy(TreeNode *from, TreeNode *to);
 
 #endif /* BINARYTREE_HPP_ */
