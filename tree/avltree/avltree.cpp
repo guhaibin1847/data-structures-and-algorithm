@@ -145,12 +145,28 @@ void visit(TreeNode *p){
 	std::cout << p->_val << '\t';
 }
 
-/******************* member function *******************/
-AvlTree::AvlTree(const AvlTree &tree):root(new TreeNode(tree.root->_val)){
+TreeNode* deepCopy(TreeNode *from, TreeNode *to){
+	if(from != nullptr){
+		to = new TreeNode(from->_val);
+		to->height = from->height;
+		to->left = deepCopy(from->left, to->left);
+		to->right = deepCopy(from->right, to->right);
+	}
+	return to;
+}
 
+/******************* member function *******************/
+AvlTree::AvlTree(const AvlTree &tree):root(nullptr){
+	root = deepCopy(tree.root, root);
 }
 
 AvlTree& AvlTree::operator =(const AvlTree &tree){
+	if(this != &tree){
+		AvlTree tmp(tree);
+		TreeNode *tp = tmp.root;
+		tmp.root = this->root;
+		this->root = tp;
+	}
 	return *this;
 }
 
