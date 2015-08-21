@@ -15,7 +15,8 @@ int main(){
 	//mergeSort(A, 11);
 	//quickSort(A, 11);
 	//selectSort(A, 11);
-	bubbleSort(A, 11);
+	//bubbleSort(A, 11);
+	mergeSortIterative(A, 11);
 }
 
 

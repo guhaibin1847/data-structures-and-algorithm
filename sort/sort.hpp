@@ -35,6 +35,7 @@ void bubbleSort(int A[], int n);
 void quickSort(int A[], int n);
 /*归并排序*/
 void mergeSort(int A[], int n);
+void mergeSortIterative(int A[], int n);
 
 
 
