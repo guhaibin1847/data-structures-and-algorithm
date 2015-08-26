@@ -38,7 +38,7 @@ int findLongestSubstring(string s1, string s2){
 int main(){
 	string s1 = "bab";
 	string s2 = "caba";
-	int max = findLongest(s1, s2);
+	int max = findLongestSubstring(s1, s2);
 	std::cout << max << std::endl;
 	return 0;
 }
