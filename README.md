@@ -25,4 +25,5 @@
   - 归并排序
 - 动态规划
   - 最长递增子序列(LIS)
-  - 最长公共子序列(LCS)
+  - 最长公共子序列(LCSubSequence)
+  - 最长公共子串(LCSubstring)
